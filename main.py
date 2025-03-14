@@ -1,6 +1,6 @@
 
 
-
+import tempfile
 import requests
 from bs4 import BeautifulSoup
 from selenium import webdriver
@@ -112,6 +112,9 @@ def scrape():
     options.add_argument('--no-headless')
     options.add_argument('--no-sandbox')
     options.add_argument('--disable-dev-shm-usage')
+
+    # Specify a unique user data directory for each session
+    options.add_argument(f'--user-data-dir={tempfile.mkdtemp()}')
 
     service = Service(ChromeDriverManager().install())
     
