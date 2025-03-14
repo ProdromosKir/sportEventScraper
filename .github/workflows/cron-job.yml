@@ -2,7 +2,7 @@ name: Run Python script periodically
 
 on:
   schedule:
-    - cron: '* * * * *'  # Run at the start of every hour
+    - cron: '* * * * *'  
   workflow_dispatch:  # Allow you to trigger it manually
 
 jobs:
