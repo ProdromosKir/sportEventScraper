@@ -30,6 +30,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 
 
 
+
 load_dotenv()
 app = Flask(__name__)
 
@@ -112,9 +113,9 @@ def scrape():
     options.add_argument('--no-sandbox')
 
     service = Service(ChromeDriverManager().install())
-    #driver = webdriver.Chrome(service=service,options=options)
-    driver = webdriver.Chrome()
-    #driver = webdriver.Chrome(executable_path=chromedriver_path, options=options)
+    
+    #driver = webdriver.Chrome(ChromeDriverManager().install())
+    driver = webdriver.Chrome(service=service, options=options)
     driver.get(url)
 
     scrapped_events = []
